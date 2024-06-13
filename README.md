@@ -4,6 +4,7 @@ ASCII-ART
 / /\ \ _ \ | | | | | | || / /\ \ | _ / | |
 / \ ) | | | | | | |_ / \ | | \ \ | |
 // _\ |/ _| || || // _\ || _\ |_|
+```
  ## About
 This is a program that takes a string and outputs it in an art form out of ASCII characters.This project This Project was developed during Module phase at zone01 Kisumu cohort
 ## Installation
@@ -22,12 +23,12 @@ This is actually a function that solely does the printing of the characters it l
 This functions just helps to locate where the character is located(position)in the file read and it helps### 5.ValidChar
 This is a function that solely limits only characters in the ASCII read from the file to be printed and ## Usage
 go run . <input-string> <flag--optional>
-
+```
 student$ go run . “” | cat -e student$ go run . “\n” | cat -e $ student$ go run . “Hello\n” | cat -e _ _ _ _ $ | | | | | | | | $ | || | | | | | $ | | / _ \ | | | |
 / _ \ $ | | | | | / | | | | | () | $ || |_| _| || || _/ $ $ $ $ student$ go run . “hello” | cat -e _ _ _ $ | | | | | | $ | | | | | | $ | _ \ / _ \ | | | | / _ \ $ | | | | | / | | |
 | | () | $ || |_| _| || || _/ $ $ $ student$ go run . “HeLlO” | cat -e _ _ _ _ $ | | | | | | | | / \ $ | || | | | | | | | | | $ | | / _ \ | | | | | | | | $ | | | | | / | | | | | ||
 | $ || || _| || || _/ $ $ $ student$ go run . “Hello There” | cat -e _ _ _ _ _ $ | | | | | | | | | | | | $ | || | | | | | | | | | _ $ | | / _ \ | | | | / _ \ | | | _ \ / _ \ | ‘| /
-_ \ $ | | | | | / | | | | | () | | | | | | | | / | | | / $ || || ___| || || ___/ || || || _| |_| _| $ $ $ student$ go run . “1Hello 2There” | cat -e _ _ _ _ _ $ _ | | | | | |
+_ \ $ | | | | | / | | | | | () | | | | | | | | / | | | / $ || || __| || || ___/ || || || _| |_| _| $ $ $ student$ go run . “1Hello 2There” | cat -e _ _ _ _ _ $ _ | | | | | |
 | | | | | | $ / | | || | | | | | | \ | | | | _ $ | | | | / _ \ | | | | / _ \ ) | | | | _ \ / _ \ | ’| / _ \ $ | | | | | | | / | | | | | (_) | / / | | | | | | | / | | | / $ || || || ___| || || _/ || || ||
 |_| _| || _| $ $ $ student$ go run . “{Hello There}” | cat -e _ _ _ _ _ $ / / | | | | | | | | | | | | \ \ $ | | | || | | | | | | | | | _ | | $ / / | | / _ \ | | | | / _ \ | |
 | _ \ / _ \ | ‘| / _ \ \ \ $ \ \ | | | | | / | | | | | (_) | | | | | | | | / | | | / / / $ | | || || _| || || _/ || || |_| _| || ___| | | $ _\ // $ $ student$ go run .
@@ -44,6 +45,7 @@ familiar 'font' apppearance style/
 already.It prints the 8 rows that form the characters of a word printing each line of individual charcters of the word first before going to the following lines until the 8th one
 the PrintWords function locate charcters to be printed
 nothing outside the scope
-Contributors
-Nungo Edwin
-Namayi Franklyn
+
+## Contributors
+* Nungo Edwin
+* Namayi Franklyn
