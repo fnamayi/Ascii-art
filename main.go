@@ -1,71 +1,48 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
-	"strings"
+
+	inputs "ascii-art/pkg"
 )
 
 func main() {
-	if len(os.Args) == 1 {
-		return
-	}
+	input, _ := inputs.InputArgs(os.Args)
+	asciiFields := inputs.FileChoice(os.Args)
+	printWords(input, asciiFields)
+}
 
-	// Writing arguments in a single string
-	str := os.Args[1]
-	for _, v := range os.Args[2:] {
-		str += " " + v
-	}
-
-	//2. Checking weather str contain "\n" or not ---> executing the ascii-art
-	prev := 'a'
-	severallines := false
-	for _, v := range str {
-		if v == 'n' && prev == '\\' {
-			severallines = true
-		}
-		prev = v
-	}
-	//3. Writing text line by line into res
-	res := ""
-	if severallines {
-		args := strings.Split(str, "\\n")
-		for _, word := range args {
+// printing of the characters
+func printWords(input []string, asciiFields []string) {
+	for _, word := range input {
+		if word == "" {
+			fmt.Println()
+		} else {
 			for i := 0; i < 8; i++ {
-				for _, letter := range word {
-					res += GetLine(1 + int(letter-' ')*9 + i)
+				for _, char := range word {
+					if !validChar(char) {
+						return
+					}
+					startPoint := Start(int(char))
+					fmt.Print(asciiFields[startPoint+i])
 				}
-				fmt.Println(res)
-				res = ""
+				fmt.Println()
 			}
-		}
-
-	} else {
-		for i := 0; i < 8; i++ {
-			for _, letter := range str {
-				res += GetLine(1 + int(letter-' ')*9 + i)
-			}
-			fmt.Println(res)
-			res = ""
 		}
 	}
 }
 
-func GetLine(num int) string {
-	str := ""
-	f, e := os.Open("standard.txt")
-	if e != nil {
-		fmt.Println(e.Error())
-		os.Exit(0)
-	}
-	defer f.Close()
+// starting positions of the characters
+func Start(s int) int {
+	pos := int(s-32)*9 + 1
+	return pos
+}
 
-	f.Seek(0, 0)
-	content := bufio.NewReader(f)
-	for i := 0; i < num; i++ {
-		str, _ = content.ReadString('\n')
+func validChar(s rune) bool {
+	if !(s >= ' ' && s <= '~') {
+		fmt.Println(string(s) + " " + "is not valid character")
+		return false
 	}
-	str = strings.TrimSuffix(str, "\n")
-	return str
+	return true
 }
